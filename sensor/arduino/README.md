@@ -150,7 +150,7 @@ $ go run sensor/step5/main.go /dev/ttyACM0
 
 When you press the second button, the buzzer should sound.
 
-### step6.go - Blue LED, Button, Green LED, Cylon.js API, Buzzer, Additional Button, Photoresistor
+### step6.go - Blue LED, Button, Green LED, Gobot API, Buzzer, Additional Button, Photoresistor
 
 ![Gobot](../../images/sensor/arduino/step6.jpg)
 
