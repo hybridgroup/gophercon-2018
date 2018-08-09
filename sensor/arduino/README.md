@@ -36,7 +36,7 @@ The Gobot program will use the serial interface to communicate with the connecte
 
 ### step0.go - Built-in LED
 
-![Gobot](../images/sensor/arduino/step0.jpg)
+![Gobot](../../images/sensor/arduino/step0.jpg)
 
 This tests that the Arduino is connected correctly to your computer, by blinking the built-in LED.
 
@@ -46,7 +46,7 @@ $ go run sensor/step0/main.go /dev/ttyACM0
 
 ### step1.go - Blue LED
 
-![Gobot](../images/sensor/arduino/step1a.jpg)
+![Gobot](../../images/sensor/arduino/step1a.jpg)
 
 First connect the power on the Arduino to the breadboard as follows:
 
@@ -54,7 +54,7 @@ First connect the power on the Arduino to the breadboard as follows:
 
 - Connect the GND pin on the Arduino to the breadboard's blue ground rail (-) using a black jumper cable.
 
-![Gobot](../images/sensor/arduino/step1b.jpg)
+![Gobot](../../images/sensor/arduino/step1b.jpg)
 
 - Plug a blue LED to pin 3 and pin 4 on the breadboard. Make sure the longer pin of the LED is plugged into pin 3. Any column on the breadboard (a-e) will work.
 
@@ -74,7 +74,7 @@ You should see the blue LED blink.
 
 ### step2.go - Blue LED, Button
 
-![Gobot](../images/sensor/arduino/step2.jpg)
+![Gobot](../../images/sensor/arduino/step2.jpg)
 
 - Connect the button to the breadboard so one side connects to pins 7 and 9 on one side of the gap, and connects to pins 7 and 9 on the other side of the gap.
 
@@ -96,7 +96,7 @@ When you press the button, the blue LED should turn on.
 
 ### step3.go - Blue LED, Button, Green LED
 
-![Gobot](../images/sensor/arduino/step3.jpg)
+![Gobot](../../images/sensor/arduino/step3.jpg)
 
 - Plug a green LED to pin 13 and pin 14 on the breadboard. Make sure the longer pin of the LED is plugged into pin 13.
 
@@ -126,7 +126,7 @@ You can now point your web browser to `http://localhost:3000` and try out the [R
 
 ### step5.go - Blue LED, Button, Green LED, Gobot API, Buzzer, Additional Button
 
-![Gobot](../images/sensor/arduino/step5.jpg)
+![Gobot](../../images/sensor/arduino/step5.jpg)
 
 - Connect the buzzer to pin 16 on both sides of the breadboard. Make sure the plus (+) is on the left side.
 
@@ -154,7 +154,7 @@ When you press the second button, the buzzer should sound.
 
 ### step6.go - Blue LED, Button, Green LED, Cylon.js API, Buzzer, Additional Button, Photoresistor
 
-![Gobot](../images/sensor/arduino/step6.jpg)
+![Gobot](../../images/sensor/arduino/step6.jpg)
 
 - Connect the Photoresistor to pin 26 on the breadboard and the power rail (+) on the breadboard.
 
