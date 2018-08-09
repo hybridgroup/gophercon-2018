@@ -38,6 +38,12 @@ The Gobot program will use the serial interface to communicate with the connecte
 
 ![Gobot](../../images/sensor/arduino/step0.jpg)
 
+First connect the power on the Arduino to the breadboard as follows:
+
+- Connect the 5V power pin on the Arduino to the breadboard's red power rail (+) using a red jumper cable.
+
+- Connect the GND pin on the Arduino to the breadboard's blue ground rail (-) using a black jumper cable.
+
 This tests that the Arduino is connected correctly to your computer, by blinking the built-in LED.
 
 ```
@@ -46,15 +52,7 @@ $ go run sensor/step0/main.go /dev/ttyACM0
 
 ### step1.go - Blue LED
 
-![Gobot](../../images/sensor/arduino/step1a.jpg)
-
-First connect the power on the Arduino to the breadboard as follows:
-
-- Connect the 5V power pin on the Arduino to the breadboard's red power rail (+) using a red jumper cable.
-
-- Connect the GND pin on the Arduino to the breadboard's blue ground rail (-) using a black jumper cable.
-
-![Gobot](../../images/sensor/arduino/step1b.jpg)
+![Gobot](../../images/sensor/arduino/step1.jpg)
 
 - Plug a blue LED to pin 3 and pin 4 on the breadboard. Make sure the longer pin of the LED is plugged into pin 3. Any column on the breadboard (a-e) will work.
 
