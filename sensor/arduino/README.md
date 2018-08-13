@@ -14,7 +14,9 @@ go get -d -u gobot.io/x/gobot/...
 
 ## Connecting the Arduino to your computer
 
-Plug the Arduino into your computer using the USB cable provided in your starter kit. The Firmata firmware that we use for controlling the Arduino from your computer has already been flashed onto the Arduino board.
+Plug the Arduino into your computer using the USB cable provided in your starter kit.
+
+The Gobot program will use the serial interface to communicate with the connected Arduino that is running the Firmata firmware. If you are at the Gophercon hack session, your Arduino probably already has Firmata installed for you. If you need to load Firmata on your Arduino you can use Gort (http://gort.io).
 
 ## Running the code
 
@@ -22,15 +24,31 @@ When you run any of these examples, you will compile and execute the code on you
 
 To compile and run the code:
 
+### Linux
+
 ```
-$ go run sensor/step01/main.go /dev/ttyACM0
+$ go run sensor/arduino/step01/main.go /dev/ttyACM0
 ```
 
-If using macOS then the Arduino will probably use a device name like `/dev/tty.usbmodem1421`. Perform a directory listing of `/dev/`; the Arduino is likely a device named using the pattern `/dev/tty.usbmodem`.
+### macOS
+
+When using macOS then the Arduino will probably use a device name like `/dev/tty.usbmodem1421`. Perform a directory listing of `/dev/`; the Arduino is likely a device named using the pattern `/dev/tty.usbmodem`.
 
 Substitute the name of the program and the name of your serial port as needed.
 
-The Gobot program will use the serial interface to communicate with the connected Arduino that is running the Firmata firmware. Your Arduino already has Firmata installed for you. If you need to reload Firmata on your Arduino you can use Gort (http://gort.io)
+```
+$ go run sensor/arduino/step01/main.go /dev/tty.usbmodem1421
+```
+
+### Windows
+
+When using Windows then the Arduino will probably use a device name like `COM3:`. Use the Windows Device Manger to find the connected Arduino once it is plugged in.
+
+Substitute the name of the program and the name of your serial port as needed.
+
+```
+$ go run sensor/arduino/step01/main.go COM3:
+```
 
 ## Code
 
@@ -47,7 +65,7 @@ First connect the power on the Arduino to the breadboard as follows:
 This tests that the Arduino is connected correctly to your computer, by blinking the built-in LED.
 
 ```
-$ go run sensor/step0/main.go /dev/ttyACM0
+$ go run sensor/arduino/step0/main.go /dev/ttyACM0
 ```
 
 ### step1.go - Blue LED
@@ -65,7 +83,7 @@ $ go run sensor/step0/main.go /dev/ttyACM0
 Run the code.
 
 ```
-$ go run sensor/step1/main.go /dev/ttyACM0
+$ go run sensor/arduino/step1/main.go /dev/ttyACM0
 ```
 
 You should see the blue LED blink.
@@ -87,7 +105,7 @@ You should see the blue LED blink.
 Run the code.
 
 ```
-$ go run sensor/step2/main.go /dev/ttyACM0
+$ go run sensor/arduino/step2/main.go /dev/ttyACM0
 ```
 
 When you press the button, the blue LED should turn on.
@@ -105,7 +123,7 @@ When you press the button, the blue LED should turn on.
 Run the code.
 
 ```
-$ go run sensor/step3/main.go /dev/ttyACM0
+$ go run sensor/arduino/step3/main.go /dev/ttyACM0
 ```
 
 The green LED should light up. When you press the button, the blue LED should turn on, and the green LED should turn off.
@@ -117,7 +135,7 @@ This step has us playing with the Gobot API. No additional hardware needs to be 
 Run the code.
 
 ```
-$ go run sensor/step3/main.go /dev/ttyACM0
+$ go run sensor/arduino/step3/main.go /dev/ttyACM0
 ```
 
 You can now point your web browser to `http://localhost:3000` and try out the [Robeaux](https://github.com/hybridgroup/robeaux) web interface.
@@ -145,7 +163,7 @@ You can now point your web browser to `http://localhost:3000` and try out the [R
 Run the code.
 
 ```
-$ go run sensor/step5/main.go /dev/ttyACM0
+$ go run sensor/arduino/step5/main.go /dev/ttyACM0
 ```
 
 When you press the second button, the buzzer should sound.
@@ -163,7 +181,7 @@ When you press the second button, the buzzer should sound.
 Run the code.
 
 ```
-$ go run sensor/step6/main.go /dev/ttyACM0
+$ go run sensor/arduino/step6/main.go /dev/ttyACM0
 ```
 
 Changing the light level will display the current analog reading on your console.
