@@ -1,10 +1,10 @@
-# Sensor Station
+# Arduino Sensor Station
 
 ## What you need
 
     - Arduino or compatible microcontroller
     - Basic Starter Kit parts
-    - Personal computer with Go installed, and a serial port.
+    - Personal computer with Go 1.10+ installed, and a serial port.
 
 ## Installation
 
