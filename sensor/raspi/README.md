@@ -37,30 +37,101 @@ The `runner.sh` script performs the following steps for you:
 For example, to compile the code for step 1:
 
 ```
-GOARCH=arm GOOS=linux go build -o step1 step1/main.go
+GOARCH=arm GOOS=linux go build -o step1app step1/main.go
 ```
 
 Then to move the code to the Raspberry Pi, it uses the `scp` command:
 
 ```
-scp step1 pi@10.0.0.23:/home/pi/
+scp step1app pi@[IP of your device]:/home/pi/step1app
 ```
 
 Lastly, to execute it on your Raspberry Pi, it uses the `ssh` command:
 
 ```
-ssh -t root@<IP of your device> ./step1
+ssh -t pi@[IP of your device] ./step1app
 ```
 
+Ready? Let's get started.
 
 ### step1.go - LED
 
+![Raspberry Pi - Step 1](../../images/sensor/raspi/step1.jpg)
+
+Connect the green LED to pin D2 on the GrovePi+ board using the Grove connector.
+
+Run the code:
+
+```
+$ ./runner.sh step1 192.168.1.42
+```
+
+You should see the LED blink.
+
 ### step2.go - LED, Button
+
+![Raspberry Pi - Step 2](../../images/sensor/raspi/step2.jpg)
+
+Connect the Grove button to pin D3 on the GrovePi+ board using the Grove connector.
+
+Run the code:
+
+```
+$ ./runner.sh step2 192.168.1.42
+```
+
+When you press the button, you should see the LED turn on. When you release the button, it should turn off.
 
 ### step3.go - LED, Button, RGB LCD Display
 
+![Raspberry Pi - Step 3](../../images/sensor/raspi/step3.jpg)
+
+Connect the Grove RGB LCD to pin i2c-1 on the GrovePi+ board using the Grove connector.
+
+Run the code:
+
+```
+$ ./runner.sh step3 192.168.1.42
+```
+
+Now when you press the button, in addition to the LED turning on, you should also RGB LCD display a message that the button has been pushed. When you release the button, the LED should turn off, and a different message displayed on the RGB LCD.
+
 ### step4.go - LED, Button, RGB LCD Display, Rotary
+
+![Raspberry Pi - Step 4](../../images/sensor/raspi/step4.jpg)
+
+Connect the Grove Rotary dial to pin A1 on the GrovePi+ board using the Grove connector.
+
+Run the code:
+
+```
+$ ./runner.sh step4 192.168.1.42
+```
+
+Now when you press the button, in addition to the LED turning on, you should also RGB LCD display a message that the button has been pushed. When you release the button, the LED should turn off, and a different message displayed on the RGB LCD.
 
 ### step5.go - LED, Button, RGB LCD Display, Rotary, Gobot API
 
+![Raspberry Pi - Step 5](../../images/sensor/raspi/step5.jpg)
+
+In this step, you will try out the Gobot API. No additional hardware is added.
+
+Run the code:
+
+```
+$ ./runner.sh step5 192.168.1.42
+```
+
 ### step6.go - LED, Button, RGB LCD Display, Rotary, Gobot API, Light Sensor
+
+![Raspberry Pi - Step 6](../../images/sensor/raspi/step6.jpg)
+
+Connect the Grove Light sensor to pin A2 on the GrovePi+ board using the Grove connector.
+
+Run the code:
+
+```
+$ ./runner.sh step6 192.168.1.42
+```
+
+When the light level changes, you should see a message on the RGB LCD display.
