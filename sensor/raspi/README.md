@@ -12,6 +12,8 @@
 go get -d -u gobot.io/x/gobot/...
 ```
 
+The Gobot driver for the GrovePi+ board requires that the board has been upgraded to firmware v1.3.0+ which has already been done for you if you are at Gophercon hackday.
+
 ## Running the code
 
 When you run any of these examples, you will compile the code on your computer, but then execute the binary file on the Raspberry Pi itself. 
@@ -63,7 +65,7 @@ Connect the green LED to pin D2 on the GrovePi+ board using the Grove connector.
 Run the code:
 
 ```
-$ ./runner.sh step1 192.168.1.42
+$ ./runner.sh step1 [IP of your device]
 ```
 
 You should see the LED blink.
@@ -77,7 +79,7 @@ Connect the Grove button to pin D3 on the GrovePi+ board using the Grove connect
 Run the code:
 
 ```
-$ ./runner.sh step2 192.168.1.42
+$ ./runner.sh step2 [IP of your device]
 ```
 
 When you press the button, you should see the LED turn on. When you release the button, it should turn off.
@@ -91,7 +93,7 @@ Connect the Grove RGB LCD to pin i2c-1 on the GrovePi+ board using the Grove con
 Run the code:
 
 ```
-$ ./runner.sh step3 192.168.1.42
+$ ./runner.sh step3 [IP of your device]
 ```
 
 Now when you press the button, in addition to the LED turning on, you should also RGB LCD display a message that the button has been pushed. When you release the button, the LED should turn off, and a different message displayed on the RGB LCD.
@@ -105,7 +107,7 @@ Connect the Grove Rotary dial to pin A1 on the GrovePi+ board using the Grove co
 Run the code:
 
 ```
-$ ./runner.sh step4 192.168.1.42
+$ ./runner.sh step4 [IP of your device]
 ```
 
 Now when you press the button, in addition to the LED turning on, you should also RGB LCD display a message that the button has been pushed. When you release the button, the LED should turn off, and a different message displayed on the RGB LCD.
@@ -119,7 +121,7 @@ In this step, you will try out the Gobot API. No additional hardware is added.
 Run the code:
 
 ```
-$ ./runner.sh step5 192.168.1.42
+$ ./runner.sh step5 [IP of your device]
 ```
 
 ### step6.go - LED, Button, RGB LCD Display, Rotary, Gobot API, Light Sensor
@@ -131,7 +133,7 @@ Connect the Grove Light sensor to pin A2 on the GrovePi+ board using the Grove c
 Run the code:
 
 ```
-$ ./runner.sh step6 192.168.1.42
+$ ./runner.sh step6 [IP of your device]
 ```
 
 When the light level changes, you should see a message on the RGB LCD display.

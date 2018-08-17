@@ -10,7 +10,12 @@ Check out https://github.com/hybridgroup/gophercar for more info.
 
 ## Gopherdrone
 
-4 Tello drones and Dualshock3-clone controllers to be coded/flown. Post your awesome videos!
+We will have the following drones for your flying activities:
+
+- DJI Tello
+- Parrot Minidrone
+
+In additional to these drones to be to be coded/flown, we will also have Dualshock3-clone controllers for flight control. Post your awesome videos!
 
 ## Gobot IoT sensors
 
@@ -22,3 +27,7 @@ We will have 2 different IoT sensor kits available for use:
 ## Surprises
 
 'nuff said!
+
+## License
+
+Copyright (c) 2015-2018 The Hybrid Group. Licensed under the MIT license.

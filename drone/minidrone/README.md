@@ -125,6 +125,3 @@ Run the code.
     go build -o step6 drone/minidrone/step6/main.go
     sudo ./step6 [dronename] ssl://iot.eclipse.org:8883
 
-## License
-
-Copyright (c) 2015-2018 The Hybrid Group. Licensed under the MIT license.
