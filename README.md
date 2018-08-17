@@ -24,6 +24,12 @@ We will have 2 different IoT sensor kits available for use:
 - Intel UpSquared (aka Up2) Grove IoT Development Kit
 - Arduino Starter Kit
 
+## Intel Movidius Myriad 2 Neural Compute Stick (NCS)
+
+Thanks to our awesome colleagues at Intel, we have the new Intel Movidius Myriad 2 Neural Compute Stick (https://www.movidius.com/myriad2). 
+
+This USB device contains a Video Processing Unit (VPU) the lets you perform low power execution of deep neural networks.
+
 ## Surprises
 
 'nuff said!
