@@ -30,6 +30,10 @@ Thanks to our awesome colleagues at Intel, we have the new Intel Movidius Myriad
 
 This USB device contains a Video Processing Unit (VPU) the lets you perform low power execution of deep neural networks.
 
+## Rovers
+
+We will have Sphero SPRK+ robots.
+
 ## Surprises
 
 'nuff said!
