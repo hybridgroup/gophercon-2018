@@ -20,16 +20,13 @@ When you run any of these examples, you will compile and execute the code on you
 
 Therefore, you must connect to the Tello drone which acts as a WiFi access point before you will be able to run any of the code.
 
+Further instructions here...
 
 ## Code
 
 ### step01/main.go
 
 Let's start with a simple takeoff, and then land. Make sure the drone is turned on, then run the code.
-
-### macOS
-
-    GODEBUG=cgocheck=0 go run drone/minidrone/step1/main.go [dronename]
 
 ### macOS & Linux
 
