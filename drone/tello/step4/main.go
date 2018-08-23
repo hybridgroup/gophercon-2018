@@ -30,6 +30,11 @@ func main() {
 			currentFlightData = fd
 		})
 
+		drone.On(tello.FlipEvent, func(data interface{}) {
+			fmt.Println("Flip")
+		})
+
+
 		drone.TakeOff()
 
 		go func(){
@@ -37,7 +42,7 @@ func main() {
 			stopChan <- true
 		}()
 
-		flySimpleMovements()
+		performFlips()
 
 		go func() {
 			for {
@@ -75,20 +80,10 @@ Light Strength: %d
 	fmt.Printf(displayData, d.Height, d.GroundSpeed, d.LightStrength)
 }
 
-func flySimpleMovements()  {
-	drone.Forward(20)
+func performFlips()  {
+	drone.FrontFlip()
 	time.Sleep(time.Second * 3)
-	drone.Forward(0)
-	drone.Backward(20)
-	time.Sleep(time.Second * 3)
-	drone.Backward(0)
-	drone.Left(20)
-	time.Sleep(time.Second * 3)
-	drone.Left(0)
-	drone.Right(20)
-	time.Sleep(time.Second * 3)
-	drone.Right(0)
-	drone.Land()
+	drone.BackFlip()
 }
 
 func processSigInt()  {

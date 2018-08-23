@@ -26,35 +26,33 @@ Further instructions here...
 
 ### step01/main.go
 
-Let's start with a simple takeoff, and then land. Make sure the drone is turned on, then run the code.
+Let's start with a simple takeoff, and then land. Make sure the drone is turned on and you're connected to its wifi access point, then run the code.
 
-### macOS & Linux
+```go run step1/main.go```
 
-    go run drone/tello/step1/main.go
-
-### Windows
-
-    go run drone\tello\step1\main.go
-
-
+<hr>
 ### step02/main.go
 
-The drone can return some flight data. Run this code:
+The drone will hover and return some flight data info. Run this code:
 
-...
+```go run step2/main.go```
 
+<hr>
 ### step03/main.go
 
-The drone can move forward, backward, to the right, and the left, all while maintaining a steady altitude. Run the code.
+**NOTE: Ctrl-C will now land the drone if you get in trouble!**
 
-...
+The drone can move forward, backward, to the right, and the left, all while maintaining a steady altitude. Run the code. 
 
+```go run step3/main.go```
+
+<hr>
 ### step04/main.go
 
 The drone can perform flips while flying. Run the code.
 
 ...
-
+<hr>
 ### step05/main.go
 
 Now it is time for free flight, controlled by you, the human pilot. Plug in the DS3 controller to your computer. The controls are as follows:
@@ -62,7 +60,7 @@ Now it is time for free flight, controlled by you, the human pilot. Plug in the 
 Run the code.
 
 ...
-
+<hr>
 ### step06/main.go
 
 Now that you have mastered the flight controls, let's grab the drone video feed.
