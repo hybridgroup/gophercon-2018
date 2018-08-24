@@ -10,10 +10,6 @@ import (
 
 func main() {
 	var currentFlightData *tello.FlightData
-
-	fdTicker := time.NewTicker(time.Second * 2)
-	stopChan := make(chan bool, 1)
-
 	drone    := tello.NewDriver("8888")
 
 	work := func() {
@@ -26,21 +22,13 @@ func main() {
 
 		drone.TakeOff()
 
-		go func(){
-			time.Sleep(time.Second * 10)
-			stopChan <- true
-		}()
+		gobot.Every(1*time.Second, func() {
+			printFlightData(currentFlightData)
+		})
 
-		go func() {
-			for {
-				select {
-				case <- fdTicker.C:
-					printFlightData(currentFlightData)
-				case <-stopChan:
-					drone.Land()
-				}
-			}
-		}()
+		gobot.After(20*time.Second, func() {
+			drone.Land()
+		})
 
 	}
 

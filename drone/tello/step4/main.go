@@ -6,23 +6,14 @@ import (
 
 	"gobot.io/x/gobot"
 	"gobot.io/x/gobot/platforms/dji/tello"
-	"os"
-	"os/signal"
 )
 
-var sigIntChan = make(chan os.Signal, 1)
 var drone = tello.NewDriver("8888")
 
 func main() {
-	signal.Notify(sigIntChan, os.Interrupt)
 	var currentFlightData *tello.FlightData
 
-	fdTicker := time.NewTicker(time.Second * 2)
-	stopChan := make(chan bool, 1)
-
-
 	work := func() {
-		go processSigInt()
 		fmt.Println("takeoff...")
 
 		drone.On(tello.FlightDataEvent, func(data interface{}) {
@@ -34,27 +25,19 @@ func main() {
 			fmt.Println("Flip")
 		})
 
-
 		drone.TakeOff()
 
-		go func(){
-			time.Sleep(time.Second * 10)
-			stopChan <- true
-		}()
+		gobot.Every(1*time.Second, func() {
+			printFlightData(currentFlightData)
+		})
 
-		performFlips()
+		gobot.After(5*time.Second, func() {
+			performFlips()
+		})
 
-		go func() {
-			for {
-				select {
-				case <- fdTicker.C:
-					printFlightData(currentFlightData)
-				case <-stopChan:
-					drone.Land()
-				}
-			}
-		}()
-
+		gobot.After(20*time.Second, func() {
+			drone.Land()
+		})
 	}
 
 	robot := gobot.NewRobot("tello",
@@ -84,11 +67,4 @@ func performFlips()  {
 	drone.FrontFlip()
 	time.Sleep(time.Second * 3)
 	drone.BackFlip()
-}
-
-func processSigInt()  {
-	<- sigIntChan
-
-	drone.Land()
-	drone.Halt()
 }
