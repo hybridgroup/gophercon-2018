@@ -8,6 +8,8 @@ You must first install the NCSDK before you can use the Intel Movidius Myriad 2 
 
 ### macOS
 
+The macOS support for the NCSDK currently is only for the API, not the graph compiler or other tools. To install, run the following commands:
+
     brew install coreutils opencv libusb pkg-config wget
     git clone https://github.com/milosgajdos83/ncsdk.git
     cd ncsdk
@@ -24,18 +26,28 @@ Once they are installed, you can run the following commands:
 
     git clone https://github.com/milosgajdos83/ncsdk.git
     cd ncsdk
-    cd api/src && sudo make basicinstall
+    make install
+
+## Precompiled models
+
+There is a Dropbox folder that you can download precompiled graph files for each of the models that are included in the NCSDK examples. Not all of these models have corresponding examples in the `go-ncs` package yet. You can find the graph files here:
+
+https://www.dropbox.com/sh/gaxc0sb1c1n54q8/AAAz27hbwos5WtZi_j5j9qSza?dl=0
 
 ## Code
 
-### step01/main.go
+### step1/main.go
 
 First, let's just verify communication with the NCS.
 
-### step02/main.go
+### step2/main.go
 
 Now we will load a Caffe deep neural network graph on to the NCS to process an image file.
 
-### step03/main.go
+### step3/main.go
 
-We can use the input for an attached webcam to perform image classification using the Caffe deep neural network graph we used in the previous step.
+We can use the input from an attached webcam to perform image classification using the Caffe deep neural network graph we used in the previous step.
+
+### step4/main.go
+
+Now, let's use the input from an attached webcam to perform image classification using the Tensorflow Inception v3 deep neural network model.
