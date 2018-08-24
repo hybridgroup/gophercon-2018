@@ -51,7 +51,7 @@ func main() {
 
 func printFlightData(d *tello.FlightData) {
 	if d.BatteryLow {
-		fmt.Printf(" -- Battery low: %d% --\n", d.BatteryPercentage)
+		fmt.Printf(" -- Battery low: %d%% --\n", d.BatteryPercentage)
 	}
 
 	displayData := `
