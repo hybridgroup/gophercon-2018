@@ -70,6 +70,6 @@ Now that you have mastered the flight controls, let's grab the drone video feed.
 `brew install mplayer`
 
 **Ubuntu Linux**:
-`apt-get install mplayer`
+`sudo apt-get install mplayer`
 
 ```go run step6/main.go```

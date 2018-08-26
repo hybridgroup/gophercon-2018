@@ -20,6 +20,12 @@ func main() {
 	}
 
 	work := func() {
+		drone.TakeOff()
+
+		gobot.After(time.Second*10, func() {
+			drone.Land()
+		})
+
 		drone.On(tello.ConnectedEvent, func(data interface{}) {
 			fmt.Println("Connected")
 			drone.StartVideo()
@@ -34,11 +40,6 @@ func main() {
 			if _, err := mplayerIn.Write(pkt); err != nil {
 				fmt.Println(err)
 			}
-		})
-
-		drone.TakeOff()
-		gobot.After(time.Second*10, func() {
-			drone.Land()
 		})
 	}
 
