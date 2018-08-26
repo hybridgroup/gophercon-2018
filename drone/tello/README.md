@@ -51,7 +51,8 @@ The drone can move forward, backward, to the right, and the left, all while main
 
 The drone can perform flips while flying. Run the code.
 
-...
+```go run step4/main.go```
+
 <hr>
 ### step05/main.go
 
@@ -63,8 +64,12 @@ Run the code.
 <hr>
 ### step06/main.go
 
-Now that you have mastered the flight controls, let's grab the drone video feed.
+Now that you have mastered the flight controls, let's grab the drone video feed. You'll want to make sure that you have mplayer installed first. Upon running the code, you should see an mplayer window open with the camera feed.
 
-Run the code.
+**macOS**:
+`brew install mplayer`
 
-...
+**Ubuntu Linux**:
+`apt-get install mplayer`
+
+```go run step6/main.go```

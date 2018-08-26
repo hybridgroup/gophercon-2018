@@ -25,7 +25,8 @@ func main() {
 			fmt.Println("Flip")
 		})
 
-		drone.TakeOff()
+		//drone.TakeOff(())
+		drone.Land()
 
 		gobot.Every(1*time.Second, func() {
 			printFlightData(currentFlightData)
@@ -63,7 +64,7 @@ Light Strength: %d
 	fmt.Printf(displayData, d.Height, d.GroundSpeed, d.LightStrength)
 }
 
-func performFlips()  {
+func performFlips() {
 	drone.FrontFlip()
 	time.Sleep(time.Second * 3)
 	drone.BackFlip()
