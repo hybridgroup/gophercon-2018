@@ -25,8 +25,7 @@ func main() {
 			fmt.Println("Flip")
 		})
 
-		//drone.TakeOff(())
-		drone.Land()
+		drone.TakeOff(())
 
 		gobot.Every(1*time.Second, func() {
 			printFlightData(currentFlightData)
