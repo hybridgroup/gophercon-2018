@@ -10,10 +10,10 @@ import (
 )
 
 var drone = tello.NewDriver("8888")
-var	joystickAdaptor = joystick.NewAdaptor()
+var joystickAdaptor = joystick.NewAdaptor()
 var stick = joystick.NewDriver(joystickAdaptor, "dualshock3")
 
-const(
+const (
 	CommonSpeed = 30
 )
 
@@ -29,18 +29,8 @@ func main() {
 			currentFlightData = fd
 		})
 
-		drone.On(tello.FlipEvent, func(data interface{}) {
-			fmt.Println("Flip")
-		})
-
-		drone.TakeOff(())
-
 		gobot.Every(1*time.Second, func() {
 			printFlightData(currentFlightData)
-		})
-
-		gobot.After(5*time.Second, func() {
-			performFlips()
 		})
 
 		gobot.After(20*time.Second, func() {
@@ -59,6 +49,7 @@ func main() {
 
 func configureStickEvents() {
 	stick.On(joystick.TrianglePress, func(data interface{}) {
+		fmt.Println("STICK IS STICK")
 		drone.TakeOff()
 	})
 
@@ -81,7 +72,6 @@ func configureStickEvents() {
 	})
 }
 
-
 func printFlightData(d *tello.FlightData) {
 	if d.BatteryLow {
 		fmt.Printf(" -- Battery low: %d%% --\n", d.BatteryPercentage)
@@ -101,4 +91,3 @@ func performFlips() {
 	time.Sleep(time.Second * 3)
 	drone.BackFlip()
 }
-
