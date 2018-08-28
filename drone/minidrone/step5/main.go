@@ -22,6 +22,8 @@ import (
 	"sync/atomic"
 	"time"
 
+	"runtime"
+
 	"gobot.io/x/gobot"
 	"gobot.io/x/gobot/platforms/ble"
 	"gobot.io/x/gobot/platforms/joystick"
@@ -38,8 +40,20 @@ var leftX, leftY, rightX, rightY atomic.Value
 const offset = 32767.0
 
 func main() {
+	// configLocation will get set at runtime based on OS
+	var configLocation string
+
+	switch runtime.GOOS {
+	case "darwin":
+		configLocation = fmt.Sprintf("%s/src/gobot.io/x/gobot/platforms/joystick/configs/dualshock3.json", os.Getenv("GOPATH"))
+	case "linux":
+		configLocation = "dualshock3"
+	default:
+		fmt.Sprintf("Unsupported OS: %s", runtime.GOOS)
+	}
+
 	joystickAdaptor := joystick.NewAdaptor()
-	stick := joystick.NewDriver(joystickAdaptor, "dualshock3")
+	stick := joystick.NewDriver(joystickAdaptor, configLocation)
 
 	droneAdaptor := ble.NewClientAdaptor(os.Args[1])
 	drone := minidrone.NewDriver(droneAdaptor)

@@ -25,6 +25,8 @@ import (
 	"sync/atomic"
 	"time"
 
+	"runtime"
+
 	"gobot.io/x/gobot"
 	"gobot.io/x/gobot/platforms/ble"
 	"gobot.io/x/gobot/platforms/joystick"
@@ -45,13 +47,25 @@ var leftX, leftY, rightX, rightY atomic.Value
 const offset = 32767.0
 
 func main() {
+	// configLocation will get set at runtime based on OS
+	var configLocation string
+
+	switch runtime.GOOS {
+	case "darwin":
+		configLocation = fmt.Sprintf("%s/src/gobot.io/x/gobot/platforms/joystick/configs/dualshock3.json", os.Getenv("GOPATH"))
+	case "linux":
+		configLocation = "dualshock3"
+	default:
+		fmt.Sprintf("Unsupported OS: %s", runtime.GOOS)
+	}
+
 	joystickAdaptor := joystick.NewAdaptor()
-	stick := joystick.NewDriver(joystickAdaptor, "dualshock3")
+	stick := joystick.NewDriver(joystickAdaptor, configLocation)
 
 	droneAdaptor := ble.NewClientAdaptor(os.Args[1])
 	drone := minidrone.NewDriver(droneAdaptor)
 
-	mqttAdaptor = mqtt.NewAdaptor(os.Args[3], drone.Name())
+	mqttAdaptor = mqtt.NewAdaptor(os.Args[2], drone.Name())
 	mqttAdaptor.SetAutoReconnect(true)
 
 	work := func() {
@@ -167,7 +181,7 @@ func main() {
 		})
 	}
 
-	robot := gobot.NewRobot("minidrone",
+	robot = gobot.NewRobot("minidrone",
 		[]gobot.Connection{joystickAdaptor, droneAdaptor, mqttAdaptor},
 		[]gobot.Device{stick, drone},
 		work,
@@ -192,7 +206,11 @@ func getRightStick() pair {
 
 func reportStatus(status string) {
 	buf := new(bytes.Buffer)
-	msg, _ := json.Marshal(status)
+	msg, err := json.Marshal(status)
+	if err != nil {
+		fmt.Println(err)
+		return
+	}
 	binary.Write(buf, binary.LittleEndian, msg)
 	mqttAdaptor.Publish("gophercon/drones/"+robot.Name+"/status", buf.Bytes())
 }
