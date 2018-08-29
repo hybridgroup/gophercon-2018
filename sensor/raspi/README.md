@@ -29,7 +29,7 @@ We have included a shell script to make this process easier. On Linux or macOS, 
 On Windows, you can run it like this:
 
 ```
-./runner.cmd step1 192.168.1.42
+runner.cmd step1 192.168.1.42
 ```
 
 Note: You'll use the IP Address you get during the setup process
@@ -56,9 +56,15 @@ ssh -t pi@[IP of your device] ./step1app
 
 Ready? Let's get started.
 
+### step0 - Connect the GrovePi Sheild 
+
+connect the sheild to the end of the pins on the Raspberry Pi as shown below.
+
+(../../images/sensor/raspi/step2.jpg)
+
 ### step1.go - LED
 
-![Raspberry Pi - Step 1](../../images/sensor/raspi/step1.jpg)
+![Raspberry Pi - Step 1](../../images/sensor/raspi/connectsheild.jpg)
 
 Connect the green LED to pin D2 on the GrovePi+ board using the Grove connector.
 
@@ -114,7 +120,7 @@ Now when you press the button, in addition to the LED turning on, you should als
 
 ### step5.go - LED, Button, RGB LCD Display, Rotary, Gobot API
 
-![Raspberry Pi - Step 5](../../images/sensor/raspi/step5.jpg)
+![Raspberry Pi - Step 5](../../images/sensor/raspi/step4.jpg)
 
 In this step, you will try out the Gobot API. No additional hardware is added.
 
