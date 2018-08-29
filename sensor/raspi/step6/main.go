@@ -29,6 +29,7 @@ var button *gpio.ButtonDriver
 var led *gpio.LedDriver
 
 var dial *aio.GroveRotaryDriver
+var light *aio.GroveLightSensorDriver
 
 func main() {
 	board = raspi.NewAdaptor()
@@ -40,6 +41,7 @@ func main() {
 	led = gpio.NewLedDriver(gp, "D2")
 
 	dial = aio.NewGroveRotaryDriver(gp, "A1", 500*time.Millisecond)
+	light = aio.NewGroveLightSensorDriver(gp, "A2" 500*time.Millisecond)
 
 	work := func() {
 		Message("ready")
@@ -62,11 +64,15 @@ func main() {
 			msg := fmt.Sprint("Dial: ", data)
 			Message(msg)
 		})
+		light.On(aio.Data, func(data interface{}) {
+			msg := fmt.Sprint("Light: ", data)
+			Message(msg)
+		})
 	}
 
 	robot := gobot.NewRobot("sensors",
 		[]gobot.Connection{board},
-		[]gobot.Device{gp, button, led, lcd, dial},
+		[]gobot.Device{gp, button, led, lcd, dial, light},
 		work,
 	)
 
