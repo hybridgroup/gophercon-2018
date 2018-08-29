@@ -41,7 +41,7 @@ func main() {
 	led = gpio.NewLedDriver(gp, "D2")
 
 	dial = aio.NewGroveRotaryDriver(gp, "A1", 500*time.Millisecond)
-	light = aio.NewGroveLightSensorDriver(gp, "A2" 500*time.Millisecond)
+	light = aio.NewGroveLightSensorDriver(gp, "A2", 500*time.Millisecond)
 
 	work := func() {
 		Message("ready")
