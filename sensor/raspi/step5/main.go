@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"net/http"
 	"time"
 
 	"gobot.io/x/gobot"
@@ -34,7 +35,12 @@ var dial *aio.GroveRotaryDriver
 func main() {
 	master := gobot.NewMaster()
 
+	rotaryValue := 0
+
 	a := api.NewAPI(master)
+	a.Get("/devices/rotary", func(w http.ResponseWriter, r *http.Request) {
+		fmt.Fprintf(w, "{\"value\": %d}", rotaryValue)
+	})
 	a.Start()
 
 	board = raspi.NewAdaptor()
@@ -67,6 +73,13 @@ func main() {
 		dial.On(aio.Data, func(data interface{}) {
 			msg := fmt.Sprint("Dial: ", data)
 			Message(msg)
+
+			val, ok := data.(int)
+			if !ok {
+				fmt.Println("bad rotary value")
+				return
+			}
+			rotaryValue = val
 		})
 	}
 

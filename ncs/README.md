@@ -41,7 +41,17 @@ https://www.dropbox.com/sh/gaxc0sb1c1n54q8/AAAz27hbwos5WtZi_j5j9qSza?dl=0
 First, let's just verify communication with the NCS.
 
 	go get github.com/hybridgroup/go-ncs
-	go run main.go 0
+
+	go run main.go 0 
+	
+You should see something like this:
+
+```
+NCS: 1
+Opening NCS device 1...
+Closing NCS device 1...
+Done.
+```
 
 ### step2/main.go
 

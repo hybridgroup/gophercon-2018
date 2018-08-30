@@ -56,15 +56,15 @@ ssh -t pi@[IP of your device] ./step1app
 
 Ready? Let's get started.
 
-### step0 - Connect the GrovePi Sheild
+### step0 - Connect the GrovePi Shield
 
-connect the sheild to the end of the pins on the Raspberry Pi as shown below.
+Connect the shield to the end of the pins on the Raspberry Pi as shown below.
 
-(../../images/sensor/raspi/step2.jpg)
+![Raspberry Pi - Shield](../../images/sensor/raspi/connectshield.jpg)
 
 ### step1.go - LED
 
-![Raspberry Pi - Step 1](../../images/sensor/raspi/connectsheild.jpg)
+![Raspberry Pi - Step 1](../../images/sensor/raspi/step1.jpg)
 
 Connect the green LED to pin D2 on the GrovePi+ board using the Grove connector.
 
@@ -123,6 +123,19 @@ Now when you press the button, in addition to the LED turning on, you should als
 ![Raspberry Pi - Step 5](../../images/sensor/raspi/step4.jpg)
 
 In this step, you will try out the Gobot API. No additional hardware is added.
+
+You'll need to tunnel to the device. Here is an example
+
+```
+ssh -L 3000:localhost:3000 pi@<YOUR DEVICE IP>
+```
+
+Open `localhost:3000` to view the built in device browser.
+We also added a custom handler to `device/rotary` to create a IoT example. You can use curl to call the endpoint
+
+```
+curl localhost:3000/devices/rotary
+```
 
 Run the code:
 
