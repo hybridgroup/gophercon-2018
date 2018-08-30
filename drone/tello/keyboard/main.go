@@ -6,7 +6,6 @@ import (
 	"gobot.io/x/gobot"
 	"gobot.io/x/gobot/platforms/dji/tello"
 	"os"
-	"time"
 )
 
 var drone = tello.NewDriver("8888")
