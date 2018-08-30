@@ -152,11 +152,11 @@ You can now point your web browser to `http://localhost:3000` and try out the [R
 
 - Connect a second button to the breadboard so one side connects to pins 19 and 21 on one side of the gap, and connects to pins 19 and 21 on the other side of the gap.
 
-- Connect a red jumper cable from the power rail (+) on the breadboard to pin 19 on the breadboard.
+- Connect a red jumper cable from the power rail (+) on the breadboard to pin 19 on the left side breadboard.
 
-- Connect a 10K Ohm resistor from pin 21 on the breadboard to pin 23 on the breadboard.
+- Connect a 10K Ohm resistor from pin 21 on the breadboard to pin 23 on the breadboard, both on the left side.
 
-- Connect a black jumper cable from the ground rail (-) on the breadboard to pin 23 on the breadboard.
+- Connect a black jumper cable from the ground rail (-) on the breadboard to pin 23 on left side of the breadboard.
 
 - Connect pin 8 on the Arduino to pin 21 on the breadboard on the opposite side. Choose any color of cable besides red or black.
 
