@@ -3,6 +3,7 @@ package main
 import (
 	"fmt"
 	"os"
+	"time"
 
 	"gobot.io/x/gobot"
 	"gobot.io/x/gobot/platforms/ble"
@@ -18,7 +19,8 @@ func main() {
 	mqttAdaptor := mqtt.NewAdaptor(os.Args[2], "rover")
 	mqttAdaptor.SetAutoReconnect(true)
 
-	heartbeat := mqtt.NewDriver(mqttAdaptor, "basestation/heartbeat")
+	personalizedTopic := fmt.Sprintf("basestation/heartbeat/%s", bleAdaptor.Address())
+	heartbeat := mqtt.NewDriver(mqttAdaptor, personalizedTopic)
 
 	keys := keyboard.NewDriver()
 
@@ -59,6 +61,17 @@ func main() {
 		[]gobot.Device{rover, keys},
 		work,
 	)
+
+	// We send our own messages to the topic we're listening
+	go func() {
+		for {
+			res := mqttAdaptor.Publish(personalizedTopic, []byte(mqtt.Data))
+			if res {
+				fmt.Println("published color change message...")
+			}
+			time.Sleep(5 * time.Second)
+		}
+	}()
 
 	robot.Start()
 }
