@@ -56,15 +56,15 @@ ssh -t pi@[IP of your device] ./step1app
 
 Ready? Let's get started.
 
-### step0 - Connect the GrovePi Sheild
+### step0 - Connect the GrovePi Shield
 
-connect the sheild to the end of the pins on the Raspberry Pi as shown below.
+Connect the shield to the end of the pins on the Raspberry Pi as shown below.
 
-(../../images/sensor/raspi/step2.jpg)
+![Raspberry Pi - Shield](../../images/sensor/raspi/connectshield.jpg)
 
 ### step1.go - LED
 
-![Raspberry Pi - Step 1](../../images/sensor/raspi/connectsheild.jpg)
+![Raspberry Pi - Step 1](../../images/sensor/raspi/step1.jpg)
 
 Connect the green LED to pin D2 on the GrovePi+ board using the Grove connector.
 
