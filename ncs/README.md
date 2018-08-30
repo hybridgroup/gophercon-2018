@@ -38,9 +38,10 @@ https://www.dropbox.com/sh/gaxc0sb1c1n54q8/AAAz27hbwos5WtZi_j5j9qSza?dl=0
 
 ### step1/main.go
 
-go get github.com/hybridgroup/go-ncs
-
 First, let's just verify communication with the NCS.
+
+	go get github.com/hybridgroup/go-ncs
+	go run main.go 0 
 
 ### step2/main.go
 
