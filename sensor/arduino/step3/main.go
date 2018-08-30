@@ -18,11 +18,21 @@ func TurnOff() {
 	green.Off()
 }
 
-func Reset() {
+func Green() {
 	TurnOff()
-	fmt.Println("Airlock ready.")
+
+	fmt.Println("Green!")
 	green.On()
 }
+
+func Blue() {
+	TurnOff()
+
+	fmt.Println("Blue!")
+	blue.On()
+}
+
+var Startup = Green
 
 func main() {
 	board := firmata.NewAdaptor(os.Args[1])
@@ -33,19 +43,18 @@ func main() {
 	green = gpio.NewLedDriver(board, "4")
 
 	work := func() {
-		Reset()
+		Startup()
 
 		button.On(gpio.ButtonPush, func(data interface{}) {
-			TurnOff()
-			fmt.Println("On!")
-			blue.On()
+			Blue()
 		})
 
 		button.On(gpio.ButtonRelease, func(data interface{}) {
-			Reset()
+			Green()
 		})
 	}
 
+	// Cf. https://en.wikipedia.org/wiki/Airlock
 	robot := gobot.NewRobot("airlock",
 		[]gobot.Connection{board},
 		[]gobot.Device{button, blue, green},
