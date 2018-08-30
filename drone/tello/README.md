@@ -31,6 +31,7 @@ Let's start with a simple takeoff, and then land. Make sure the drone is turned 
 ```go run step1/main.go```
 
 <hr>
+
 ### step02/main.go
 
 The drone will hover and return some flight data info. Run this code:
@@ -38,6 +39,7 @@ The drone will hover and return some flight data info. Run this code:
 ```go run step2/main.go```
 
 <hr>
+
 ### step03/main.go
 
 **NOTE: Ctrl-C will now land the drone if you get in trouble!**
@@ -47,6 +49,7 @@ The drone can move forward, backward, to the right, and the left, all while main
 ```go run step3/main.go```
 
 <hr>
+
 ### step04/main.go
 
 The drone can perform flips while flying. Run the code.
@@ -54,14 +57,26 @@ The drone can perform flips while flying. Run the code.
 ```go run step4/main.go```
 
 <hr>
+
 ### step05/main.go
 
 Now it is time for free flight, controlled by you, the human pilot. Plug in the DS3 controller to your computer. The controls are as follows:
 
-Run the code.
+* Triangle    - Takeoff
+* X           -  Land
+* Left stick  - altitude
+* Right stick - direction
 
+**macOS**
+`brew install sdl2{,_image,_mixer,_ttf,_gfx} pkg-config`
+
+`go run step5/main.go`
+
+**Linux**
+`sudo apt-get install libsdl2-dev`
 ...
 <hr>
+
 ### step06/main.go
 
 Now that you have mastered the flight controls, let's grab the drone video feed. You'll want to make sure that you have mplayer installed first. Upon running the code, you should see an mplayer window open with the camera feed.
