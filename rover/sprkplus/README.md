@@ -37,6 +37,47 @@ For example:
 $ GODEBUG=cgocheck=0 go run rover/sprkplus/step1/main.go BB-128E
 ```
 
+#### Common Errors
+
+
+##### Bad BLE version
+```
+2018/08/30 16:08:36 Initializing connections...
+2018/08/30 16:08:36 Initializing connection BLEClient-34930C2CE9B59A63 ...
+2018/08/30 16:08:36 Initializing connection MQTT-2B88DD27CAB182FB ...
+2018/08/30 16:08:36 Initializing devices...
+2018/08/30 16:08:36 Initializing device SPRKPlus-5ED845F51BA42B5E ...
+2018/08/30 16:08:36 Initializing device Keyboard-4BAC6CB69692381C ...
+2018/08/30 16:08:36 Robot rover initialized.
+2018/08/30 16:08:36 Starting Robot rover ...
+2018/08/30 16:08:36 Starting connections...
+2018/08/30 16:08:36 Starting connection BLEClient-34930C2CE9B59A63...
+panic: interface conversion: interface {} is nil, not int64
+
+goroutine 17 [running, locked to thread]:
+github.com/raff/goble/xpc.xpc.Dict.MustGetInt(...)
+	/Users/slewis/code/go/src/github.com/raff/goble/xpc/xpc.go:55
+github.com/go-ble/ble/darwin.msg.attMTU(...)
+	/Users/slewis/code/go/src/github.com/go-ble/ble/darwin/msg.go:15
+github.com/go-ble/ble/darwin.(*Device).conn(0xc420186000, 0xc4201848a0, 0x4323245)
+	/Users/slewis/code/go/src/github.com/go-ble/ble/darwin/device.go:549 +0x4b9
+github.com/go-ble/ble/darwin.(*Device).HandleXpcEvent(0xc420186000, 0xc420184870, 0x0, 0x0)
+	/Users/slewis/code/go/src/github.com/go-ble/ble/darwin/device.go:492 +0xe40
+github.com/raff/goble/xpc.handleXpcEvent(0x6300340, 0xc420054c78)
+	/Users/slewis/code/go/src/github.com/raff/goble/xpc/xpc.go:229 +0x22e
+github.com/raff/goble/xpc._cgoexpwrap_f507673fb4e8_handleXpcEvent(0x6300340, 0xc420054c78)
+	_cgo_gotypes.go:458 +0x35
+exit status 2
+```
+
+To fix this do the following:
+```
+$ cd $GOPATH/src/github.com/go-ble/ble
+$ git checkout fe39e478ef1cfc1395b96134e61f825e46e814ba
+```
+
+This switches the version of go-ble/ble to a version that works properly with older macOS/OSX versions
+
 ### Linux
 
 On Linux the BLE code will need to run as a root user account. The easiest way to accomplish this is probably to use `go build` to build your program, and then to run the requesting executable using `sudo`.
