@@ -135,7 +135,7 @@ This step has us playing with the Gobot API. No additional hardware needs to be 
 Run the code.
 
 ```
-$ go run sensor/arduino/step3/main.go /dev/ttyACM0
+$ go run sensor/arduino/step4/main.go /dev/ttyACM0
 ```
 
 You can now point your web browser to `http://localhost:3000` and try out the [Robeaux](https://github.com/hybridgroup/robeaux) web interface.
