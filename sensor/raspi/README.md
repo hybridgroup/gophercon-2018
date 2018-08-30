@@ -16,11 +16,11 @@ The Gobot driver for the GrovePi+ board requires that the board has been upgrade
 
 ## Running the code
 
-When you run any of these examples, you will compile the code on your computer, but then execute the binary file on the Raspberry Pi itself. 
+When you run any of these examples, you will compile the code on your computer, but then execute the binary file on the Raspberry Pi itself.
 
 This will require moving the compiled code onto the Raspberry Pi, and then execute the code on the Raspberry Pi itself, not on your own computer.
 
-We have included a shell script to make this process easier. On Linux or macOS, you can run it like this:
+We have included a shell script to make this process easier. On Linux or macOS, you can run it like this (assuming the IP of the RaspberryPi is `192.168.1.42`):
 
 ```
 ./runner.sh step1 192.168.1.42
@@ -56,7 +56,7 @@ ssh -t pi@[IP of your device] ./step1app
 
 Ready? Let's get started.
 
-### step0 - Connect the GrovePi Sheild 
+### step0 - Connect the GrovePi Sheild
 
 connect the sheild to the end of the pins on the Raspberry Pi as shown below.
 
