@@ -1,6 +1,6 @@
 # Intel Movidius Myriad 2 Neural Compute Stick (NCS)
 
-The Intel Movidius Myriad 2 Neural Compute Stick (https://www.movidius.com/myriad2) is a Video Processing Unit (VPU) that lets you perform low power execution of deep neural networks, in the form of a USB device.
+The Intel Movidius Myriad 2 Neural Compute Stick (https://developer.movidius.com/) is a Video Processing Unit (VPU) that lets you perform low power execution of deep neural networks, in the form of a USB device.
 
 ## Installation
 
