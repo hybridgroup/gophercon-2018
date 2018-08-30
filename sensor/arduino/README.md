@@ -138,7 +138,7 @@ Run the code.
 $ go run sensor/arduino/step3/main.go /dev/ttyACM0
 ```
 
-You can now point your web browser to `http://localhost:3000` and try out the [Robeaux](https://github.com/hybridgroup/robeaux) web interface.
+You can now point your web browser to <http://localhost:3000> and try out the [Robeaux](https://github.com/hybridgroup/robeaux) web interface.
 
 ### step5.go - Blue LED, Button, Green LED, Gobot API, Buzzer, Additional Button
 
