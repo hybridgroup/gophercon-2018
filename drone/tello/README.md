@@ -58,18 +58,18 @@ The drone can perform flips while flying. Run the code.
 
 Now it is time for free flight, controlled by you, the human pilot. Plug in the DS3 controller to your computer. The controls are as follows:
 
-Triangle    - Takeoff
-X           -  Land
-Left stick  - altitude
-Right stick - direction
+* Triangle    - Takeoff
+* X           -  Land
+* Left stick  - altitude
+* Right stick - direction
 
 **macOS**
-```brew install sdl2{,_image,_mixer,_ttf,_gfx} pkg-config```
+`brew install sdl2{,_image,_mixer,_ttf,_gfx} pkg-config`
 
 `go run step5/main.go`
 
 **Linux**
-```sudo apt-get install libsdl2-dev```
+`sudo apt-get install libsdl2-dev`
 ...
 <hr>
 ### step06/main.go
