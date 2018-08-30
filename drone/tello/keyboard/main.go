@@ -1,12 +1,12 @@
 package main
 
 import (
+	"bufio"
 	"fmt"
-	"time"
-  "bufio"
-  "os"
 	"gobot.io/x/gobot"
 	"gobot.io/x/gobot/platforms/dji/tello"
+	"os"
+	"time"
 )
 
 var drone = tello.NewDriver("8888")
@@ -25,67 +25,67 @@ func main() {
 			fmt.Println("Flip")
 		})
 
-    scanner := bufio.NewScanner(os.Stdin)
-    for scanner.Scan() {
+		scanner := bufio.NewScanner(os.Stdin)
+		for scanner.Scan() {
 			printFlightData(currentFlightData)
-      switch scanner.Text()[0] {
-        // [ ] to Take off and land
-        case '[':
-		      fmt.Println("takeoff...")
-          drone.TakeOff()
-        case ']':
-		      fmt.Println("land...")
-          drone.Land()
+			switch scanner.Text()[0] {
+			// [ ] to Take off and land
+			case '[':
+				fmt.Println("takeoff...")
+				drone.TakeOff()
+			case ']':
+				fmt.Println("land...")
+				drone.Land()
 
-        // WSAD to control forward, backward, left, and right
-        case 'w':
-		      fmt.Println("forward...")
-          drone.Forward(20)
-        case 's':
-		      fmt.Println("backward...")
-          drone.Backward(20)
-        case 'a':
-		      fmt.Println("left...")
-          drone.Left(20)
-        case 'd':
-		      fmt.Println("right...")
-          drone.Right(20)
+			// WSAD to control forward, backward, left, and right
+			case 'w':
+				fmt.Println("forward...")
+				drone.Forward(20)
+			case 's':
+				fmt.Println("backward...")
+				drone.Backward(20)
+			case 'a':
+				fmt.Println("left...")
+				drone.Left(20)
+			case 'd':
+				fmt.Println("right...")
+				drone.Right(20)
 
-        // IKJL to control up, down, spin counter clockwise, spin clockwise
-        case 'i':
-		      fmt.Println("up...")
-          drone.Up(20)
-        case 'k':
-		      fmt.Println("down...")
-          drone.Down(20)
-        case 'j':
-		      fmt.Println("spin counter clockwise...")
-          drone.CounterClockwise(tello.ValidatePitch(20, 10))
-        case 'l':
-		      fmt.Println("spin clockwise...")
-          drone.Clockwise(tello.ValidatePitch(20, 10))
+			// IKJL to control up, down, spin counter clockwise, spin clockwise
+			case 'i':
+				fmt.Println("up...")
+				drone.Up(20)
+			case 'k':
+				fmt.Println("down...")
+				drone.Down(20)
+			case 'j':
+				fmt.Println("spin counter clockwise...")
+				drone.CounterClockwise(tello.ValidatePitch(20, 10))
+			case 'l':
+				fmt.Println("spin clockwise...")
+				drone.Clockwise(tello.ValidatePitch(20, 10))
 
-        // r to stop spinning
-        case 'r':
-		      fmt.Println("stop spinning...")
-          drone.Clockwise(0)
-          drone.CounterClockwise(0)
+			// r to stop spinning
+			case 'r':
+				fmt.Println("stop spinning...")
+				drone.Clockwise(0)
+				drone.CounterClockwise(0)
 
-        // TGFH to flip front, flip back, flip left, flip right
-        case 't':
-		      fmt.Println("front flip...")
-          drone.FrontFlip()
-        case 'g':
-		      fmt.Println("back flip...")
-          drone.BackFlip()
-        case 'f':
-		      fmt.Println("left flip...")
-          drone.LeftFlip()
-        case 'h':
-		      fmt.Println("right flip...")
-          drone.RightFlip()
-        }
-    }
+			// TGFH to flip front, flip back, flip left, flip right
+			case 't':
+				fmt.Println("front flip...")
+				drone.FrontFlip()
+			case 'g':
+				fmt.Println("back flip...")
+				drone.BackFlip()
+			case 'f':
+				fmt.Println("left flip...")
+				drone.LeftFlip()
+			case 'h':
+				fmt.Println("right flip...")
+				drone.RightFlip()
+			}
+		}
 	}
 
 	robot := gobot.NewRobot("tello",
