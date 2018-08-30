@@ -138,34 +138,35 @@ $ sudo ./step03 2B-1234
 
 This step has us receiving a heartbeat signal from the "base station" using the MQTT machine to machine messaging protocol. No additional hardware needs to be connected. 
 
-You will need the server location of the MQTT server to use for the base station.
+We will connect to a MQTT machine to machine messaging server that is maintained by the Eclipse Foundation for public testing.
+
 
 When the heartbeat data is received from the base station, the built-in LED will change color.
 
 #### OS X
 
 ```
-$ GODEBUG=cgocheck=0 go run rover/sprkplus/step04/main.go SK-1234 tcp://192.168.1.55:1883
+$ GODEBUG=cgocheck=0 go run rover/sprkplus/step04/main.go SK-1234 ssl://iot.eclipse.org:8883
 ```
 
 OR
 
 ```
-$ GODEBUG=cgocheck=0 go run rover/ollie/step04/main.go 2B-1234 tcp://192.168.1.55:1883
+$ GODEBUG=cgocheck=0 go run rover/ollie/step04/main.go 2B-1234 ssl://iot.eclipse.org:8883
 ```
 
 #### Linux
 
 ```
 $ go build -o step04 rover/sprkplus/step04/main.go
-$ sudo ./step04 SK-1234 tcp://192.168.1.55:1883
+$ sudo ./step04 SK-1234 ssl://iot.eclipse.org:8883
 ```
 
 OR
 
 ```
 $ go build -o step04 rover/ollie/step04/main.go
-$ sudo ./step04 2B-1234 tcp://192.168.1.55:1883
+$ sudo ./step04 2B-1234 ssl://iot.eclipse.org:8883
 ```
 
 ### step05/main.go
@@ -175,27 +176,27 @@ Control robot using keyboard arrow keys.
 #### OS X
 
 ```
-$ GODEBUG=cgocheck=0 go run rover/sprkplus/step05/main.go SK-1234 tcp://192.168.1.55:1883
+$ GODEBUG=cgocheck=0 go run rover/sprkplus/step05/main.go SK-1234 ssl://iot.eclipse.org:8883
 ```
 
 OR
 
 ```
-$ GODEBUG=cgocheck=0 go run rover/ollie/step05/main.go 2B-1234 tcp://192.168.1.55:1883
+$ GODEBUG=cgocheck=0 go run rover/ollie/step05/main.go 2B-1234 ssl://iot.eclipse.org:8883
 ```
 
 #### Linux
 
 ```
 $ go build -o step05 rover/sprkplus/step05/main.go
-$ sudo ./step05 SK-1234 tcp://192.168.1.55:1883
+$ sudo ./step05 SK-1234 ssl://iot.eclipse.org:8883
 ```
 
 OR
 
 ```
 $ go build -o step05 rover/ollie/step05/main.go
-$ sudo ./step05 2B-1234 tcp://192.168.1.55:1883
+$ sudo ./step05 2B-1234 ssl://iot.eclipse.org:8883
 ```
 
 ### step06/main.go
@@ -205,27 +206,27 @@ Control robot using keyboard to collect data and send to base station.
 #### OS X
 
 ```
-$ GODEBUG=cgocheck=0 go run rover/sprkplus/step06/main.go SK-1234 tcp://192.168.1.55:1883
+$ GODEBUG=cgocheck=0 go run rover/sprkplus/step06/main.go SK-1234 ssl://iot.eclipse.org:8883
 ```
 
 OR
 
 ```
-$ GODEBUG=cgocheck=0 go run rover/ollie/step06/main.go 2B-1234 tcp://192.168.1.55:1883
+$ GODEBUG=cgocheck=0 go run rover/ollie/step06/main.go 2B-1234 ssl://iot.eclipse.org:8883
 ```
 
 #### Linux
 
 ```
 $ go build -o step06 rover/sprkplus/step06/main.go
-$ sudo ./step06 SK-1234 tcp://192.168.1.55:1883
+$ sudo ./step06 SK-1234 ssl://iot.eclipse.org:8883
 ```
 
 OR
 
 ```
 $ go build -o step06 rover/ollie/step06/main.go
-$ sudo ./step06 2B-1234 tcp://192.168.1.55:1883
+$ sudo ./step06 2B-1234 ssl://iot.eclipse.org:8883
 ```
 
 ## License
