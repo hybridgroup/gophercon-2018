@@ -40,10 +40,24 @@ https://www.dropbox.com/sh/gaxc0sb1c1n54q8/AAAz27hbwos5WtZi_j5j9qSza?dl=0
 
 First, let's just verify communication with the NCS.
 
+	go get github.com/hybridgroup/go-ncs
+	go run main.go 0 
+
 ### step2/main.go
 
 Now we will load a Caffe deep neural network graph on to the NCS to process an image file.
 
+	go get -u gocv.io/x/gocv
+
+Use graph files from the dropbox folder specified in the parent README.
+Sample image can be obtained from 'ncsdk' you cloned/downloaded in the previous step.
+The description file is part of 'ncsdk' as well. However, you need to build/generate it
+
+    cd </path/to/ncsdk>/examples/data/ilsvrc12
+    make
+
+    go run main.go 0 </path/to/dropbox>/ncs-models/caffe/googlenet/graph </path/to/ncsdk>/examples/data/images/cat.jpg </path/to/ncsdk>/examples/data/ilsvrc12/synset_words.txt
+    
 ### step3/main.go
 
 We can use the input from an attached webcam to perform image classification using the Caffe deep neural network graph we used in the previous step.
