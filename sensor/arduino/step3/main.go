@@ -13,15 +13,21 @@ var button *gpio.ButtonDriver
 var blue *gpio.LedDriver
 var green *gpio.LedDriver
 
-func TurnOff() {
+func turnOff() {
 	blue.Off()
 	green.Off()
 }
 
-func Reset() {
-	TurnOff()
+func reset() {
+	turnOff()
 	fmt.Println("Airlock ready.")
 	green.On()
+}
+
+func lock() {
+	turnOff()
+	fmt.Println("On!")
+	blue.On()
 }
 
 func main() {
@@ -33,19 +39,18 @@ func main() {
 	green = gpio.NewLedDriver(board, "4")
 
 	work := func() {
-		Reset()
+		reset()
 
 		button.On(gpio.ButtonPush, func(data interface{}) {
-			TurnOff()
-			fmt.Println("On!")
-			blue.On()
+			lock()
 		})
 
 		button.On(gpio.ButtonRelease, func(data interface{}) {
-			Reset()
+			reset()
 		})
 	}
 
+	// cf. https://en.wikipedia.org/wiki/Airlock
 	robot := gobot.NewRobot("airlock",
 		[]gobot.Connection{board},
 		[]gobot.Device{button, blue, green},
