@@ -18,7 +18,8 @@ func main() {
 	mqttAdaptor := mqtt.NewAdaptor(os.Args[2], "rover")
 	mqttAdaptor.SetAutoReconnect(true)
 
-	heartbeat := mqtt.NewDriver(mqttAdaptor, "basestation/heartbeat")
+	personalizedTopic := fmt.Sprintf("basestation/heartbeat/%s", bleAdaptor.Address())
+	heartbeat := mqtt.NewDriver(mqttAdaptor, personalizedTopic)
 
 	work := func() {
 		rover.On("collision", func(data interface{}) {
@@ -35,8 +36,17 @@ func main() {
 		})
 
 		gobot.Every(3*time.Second, func() {
+			fmt.Println("Rolling...")
 			rover.Roll(40, uint16(gobot.Rand(360)))
 		})
+
+		// We send our own messages to the topic we're listening
+		go func() {
+			for {
+				mqttAdaptor.Publish(personalizedTopic, []byte(mqtt.Data))
+				time.Sleep(5 * time.Second)
+			}
+		}()
 	}
 
 	robot := gobot.NewRobot("rover",
