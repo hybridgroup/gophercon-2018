@@ -95,6 +95,7 @@ Now that you have mastered the flight controls, let's grab the drone video feed.
 Control the tello with your keyboard!
 
 - [, ] control take off and landing
-- W, S, A, D control moving forward, backward, strafe left, and strafe right
-- I, K, J, L control moving up, down, turning counter clockwise, and clockwise
-- T, G, F, H control front flip, back flip, left flip, right flip
+- w, s, a, d control moving forward, backward, strafe left, and strafe right
+- i, k, j, l control moving up, down, turning counter clockwise, and clockwise
+- t, g, f, h control front flip, back flip, left flip, right flip
+- r stop all movement on the tello to allow it to simply hover

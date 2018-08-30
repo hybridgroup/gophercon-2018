@@ -64,11 +64,17 @@ func main() {
 				fmt.Println("spin clockwise...")
 				drone.Clockwise(tello.ValidatePitch(20, 10))
 
-			// r to stop spinning
+			// r to stop motion of the tello
 			case 'r':
-				fmt.Println("stop spinning...")
+				fmt.Println("stop movement...")
 				drone.Clockwise(0)
 				drone.CounterClockwise(0)
+        drone.Forward(0)
+        drone.Backward(0)
+        drone.Left(0)
+        drone.Right(0)
+        drone.Up(0)
+        drone.Down(0)
 
 			// TGFH to flip front, flip back, flip left, flip right
 			case 't':
