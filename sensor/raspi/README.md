@@ -124,6 +124,19 @@ Now when you press the button, in addition to the LED turning on, you should als
 
 In this step, you will try out the Gobot API. No additional hardware is added.
 
+You'll need to tunnel to the device. Here is an example
+
+```
+ssh -L 3000:localhost:3000 pi@<YOUR DEVICE IP>
+```
+
+Open `localhost:3000` to view the built in device browser.
+We also added a custom handler to `device/rotary` to create a IoT example. You can use curl to call the endpoint
+
+```
+curl localhost:3000/devices/rotary
+```
+
 Run the code:
 
 ```
