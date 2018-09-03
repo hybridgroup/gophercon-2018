@@ -27,7 +27,7 @@ To run any of the Gobot BLE code on OS X, you must use the `GODEBUG=cgocheck=0` 
 For example:
 
 ```
-$ GODEBUG=cgocheck=0 go run rover/sprkplus/step01/main.go BB-128E
+$ GODEBUG=cgocheck=0 go run rover/sprkplus/step1/main.go BB-128E
 ```
 
 ### Linux
@@ -37,43 +37,43 @@ On Linux the BLE code will need to run as a root user account. The easiest way t
 For example:
 
 ```
-$ go build -o step01 rover/ollie/step01/main.go
-$ sudo ./step01 2B-123E
+$ go build -o step1 rover/ollie/step1/main.go
+$ sudo ./step1 2B-123E
 ```
 
 ## Code
 
-### step01
+### step1
 
 This tests that the Sphero SPRK+ or Ollie is connected correctly to your computer, by blinking the built-in LED.
 
 #### OS X
 
 ```
-$ GODEBUG=cgocheck=0 go run rover/sprkplus/step01/main.go SK-1234
+$ GODEBUG=cgocheck=0 go run rover/sprkplus/step1/main.go SK-1234
 ```
 
 OR
 
 ```
-$ GODEBUG=cgocheck=0 go run rover/ollie/step01/main.go 2B-1234
+$ GODEBUG=cgocheck=0 go run rover/ollie/step1/main.go 2B-1234
 ```
 
 #### Linux
 
 ```
-$ go build -o step01 rover/sprkplus/step01/main.go
-$ sudo ./step01 SK-1234
+$ go build -o step1 rover/sprkplus/step1/main.go
+$ sudo ./step1 SK-1234
 ```
 
 OR
 
 ```
-$ go build -o step01 rover/ollie/step01/main.go
-$ sudo ./step01 2B-1234
+$ go build -o step1 rover/ollie/step1/main.go
+$ sudo ./step1 2B-1234
 ```
 
-### step02
+### step2
 
 Rolls around at random.
 
@@ -81,60 +81,60 @@ Rolls around at random.
 #### OS X
 
 ```
-$ GODEBUG=cgocheck=0 go run rover/sprkplus/step02/main.go SK-1234
+$ GODEBUG=cgocheck=0 go run rover/sprkplus/step2/main.go SK-1234
 ```
 
 OR
 
 ```
-$ GODEBUG=cgocheck=0 go run rover/ollie/step02/main.go 2B-1234
+$ GODEBUG=cgocheck=0 go run rover/ollie/step2/main.go 2B-1234
 ```
 
 #### Linux
 
 ```
-$ go build -o step02 rover/sprkplus/step02/main.go
-$ sudo ./step02 SK-1234
+$ go build -o step2 rover/sprkplus/step2/main.go
+$ sudo ./step2 SK-1234
 ```
 
 OR
 
 ```
-$ go build -o step02 rover/ollie/step02/main.go
-$ sudo ./step02 2B-1234
+$ go build -o step2 rover/ollie/step2/main.go
+$ sudo ./step2 2B-1234
 ```
 
-### step03
+### step3
 
 Gets collision notifications from robot.
 
 #### OS X
 
 ```
-$ GODEBUG=cgocheck=0 go run rover/sprkplus/step03/main.go SK-1234
+$ GODEBUG=cgocheck=0 go run rover/sprkplus/step3/main.go SK-1234
 ```
 
 OR
 
 ```
-$ GODEBUG=cgocheck=0 go run rover/ollie/step03/main.go 2B-1234
+$ GODEBUG=cgocheck=0 go run rover/ollie/step3/main.go 2B-1234
 ```
 
 #### Linux
 
 ```
-$ go build -o step03 rover/sprkplus/step03/main.go
-$ sudo ./step03 SK-1234
+$ go build -o step3 rover/sprkplus/step3/main.go
+$ sudo ./step3 SK-1234
 ```
 
 OR
 
 ```
-$ go build -o step03 rover/ollie/step03/main.go
-$ sudo ./step03 2B-1234
+$ go build -o step3 rover/ollie/step3/main.go
+$ sudo ./step3 2B-1234
 ```
 
-### step04/main.go
+### step4/main.go
 
 This step has us receiving a heartbeat signal from the "base station" using the MQTT machine to machine messaging protocol. No additional hardware needs to be connected. 
 
@@ -146,87 +146,87 @@ When the heartbeat data is received from the base station, the built-in LED will
 #### OS X
 
 ```
-$ GODEBUG=cgocheck=0 go run rover/sprkplus/step04/main.go SK-1234 ssl://iot.eclipse.org:8883
+$ GODEBUG=cgocheck=0 go run rover/sprkplus/step4/main.go SK-1234 ssl://iot.eclipse.org:8883
 ```
 
 OR
 
 ```
-$ GODEBUG=cgocheck=0 go run rover/ollie/step04/main.go 2B-1234 ssl://iot.eclipse.org:8883
+$ GODEBUG=cgocheck=0 go run rover/ollie/step4/main.go 2B-1234 ssl://iot.eclipse.org:8883
 ```
 
 #### Linux
 
 ```
-$ go build -o step04 rover/sprkplus/step04/main.go
-$ sudo ./step04 SK-1234 ssl://iot.eclipse.org:8883
+$ go build -o step4 rover/sprkplus/step4/main.go
+$ sudo ./step4 SK-1234 ssl://iot.eclipse.org:8883
 ```
 
 OR
 
 ```
-$ go build -o step04 rover/ollie/step04/main.go
-$ sudo ./step04 2B-1234 ssl://iot.eclipse.org:8883
+$ go build -o step4 rover/ollie/step4/main.go
+$ sudo ./step4 2B-1234 ssl://iot.eclipse.org:8883
 ```
 
-### step05/main.go
+### step5/main.go
 
 Control robot using keyboard arrow keys.
 
 #### OS X
 
 ```
-$ GODEBUG=cgocheck=0 go run rover/sprkplus/step05/main.go SK-1234 ssl://iot.eclipse.org:8883
+$ GODEBUG=cgocheck=0 go run rover/sprkplus/step5/main.go SK-1234 ssl://iot.eclipse.org:8883
 ```
 
 OR
 
 ```
-$ GODEBUG=cgocheck=0 go run rover/ollie/step05/main.go 2B-1234 ssl://iot.eclipse.org:8883
+$ GODEBUG=cgocheck=0 go run rover/ollie/step5/main.go 2B-1234 ssl://iot.eclipse.org:8883
 ```
 
 #### Linux
 
 ```
-$ go build -o step05 rover/sprkplus/step05/main.go
-$ sudo ./step05 SK-1234 ssl://iot.eclipse.org:8883
+$ go build -o step5 rover/sprkplus/step5/main.go
+$ sudo ./step5 SK-1234 ssl://iot.eclipse.org:8883
 ```
 
 OR
 
 ```
-$ go build -o step05 rover/ollie/step05/main.go
-$ sudo ./step05 2B-1234 ssl://iot.eclipse.org:8883
+$ go build -o step5 rover/ollie/step5/main.go
+$ sudo ./step5 2B-1234 ssl://iot.eclipse.org:8883
 ```
 
-### step06/main.go
+### step6/main.go
 
 Control robot using keyboard to collect data and send to base station.
 
 #### OS X
 
 ```
-$ GODEBUG=cgocheck=0 go run rover/sprkplus/step06/main.go SK-1234 ssl://iot.eclipse.org:8883
+$ GODEBUG=cgocheck=0 go run rover/sprkplus/step6/main.go SK-1234 ssl://iot.eclipse.org:8883
 ```
 
 OR
 
 ```
-$ GODEBUG=cgocheck=0 go run rover/ollie/step06/main.go 2B-1234 ssl://iot.eclipse.org:8883
+$ GODEBUG=cgocheck=0 go run rover/ollie/step6/main.go 2B-1234 ssl://iot.eclipse.org:8883
 ```
 
 #### Linux
 
 ```
-$ go build -o step06 rover/sprkplus/step06/main.go
-$ sudo ./step06 SK-1234 ssl://iot.eclipse.org:8883
+$ go build -o step6 rover/sprkplus/step6/main.go
+$ sudo ./step6 SK-1234 ssl://iot.eclipse.org:8883
 ```
 
 OR
 
 ```
-$ go build -o step06 rover/ollie/step06/main.go
-$ sudo ./step06 2B-1234 ssl://iot.eclipse.org:8883
+$ go build -o step6 rover/ollie/step6/main.go
+$ sudo ./step6 2B-1234 ssl://iot.eclipse.org:8883
 ```
 
 ## License
