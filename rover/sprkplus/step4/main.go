@@ -55,5 +55,16 @@ func main() {
 		work,
 	)
 
+	// We send our own messages to the topic we're listening
+	go func() {
+		for {
+			res := mqttAdaptor.Publish(personalizedTopic, []byte(mqtt.Data))
+			if res {
+				fmt.Println("published color change message...")
+			}
+			time.Sleep(5 * time.Second)
+		}
+	}()
+
 	robot.Start()
 }
