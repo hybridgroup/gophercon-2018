@@ -60,7 +60,7 @@ Ready? Let's get started.
 
 Connect the shield to the end of the pins on the UP2 board as shown below.
 
-![UP2 board - Shield](../../images/sensor/up2/connectshield.jpg)
+![UP2 board - Shield](../../images/sensor/up2/step0.jpg)
 
 ### step1.go - LED
 
